@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ProductoSet" EntityType="Model1.Producto" />
+    <EntitySet Name="CategoriaSet" EntityType="Model1.Categoria" />
+    <AssociationSet Name="ProductoCategoria" Association="Model1.ProductoCategoria">
+      <End Role="Producto" EntitySet="ProductoSet" />
+      <End Role="Categoria" EntitySet="CategoriaSet" />
+    </AssociationSet>
+    <EntitySet Name="HistorialSet" EntityType="Model1.Historial" />
+    <AssociationSet Name="HistorialProducto" Association="Model1.HistorialProducto">
+      <End Role="Historial" EntitySet="HistorialSet" />
+      <End Role="Producto" EntitySet="ProductoSet" />
+    </AssociationSet>
+    <EntitySet Name="ClienteSet" EntityType="Model1.Cliente" />
+    <AssociationSet Name="HistorialCliente" Association="Model1.HistorialCliente">
+      <End Role="Historial" EntitySet="HistorialSet" />
+      <End Role="Cliente" EntitySet="ClienteSet" />
+    </AssociationSet>
+    <EntitySet Name="PermisoSet" EntityType="Model1.Permiso" />
+    <EntitySet Name="RolSet" EntityType="Model1.Rol" />
+    <EntitySet Name="UsuarioSet" EntityType="Model1.Usuario" />
+    <AssociationSet Name="RolUsuario" Association="Model1.RolUsuario">
+      <End Role="Rol" EntitySet="RolSet" />
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+    </AssociationSet>
+    <AssociationSet Name="RolPermiso" Association="Model1.RolPermiso">
+      <End Role="Rol" EntitySet="RolSet" />
+      <End Role="Permiso" EntitySet="PermisoSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="ModeloAuto" Type="String" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="StockMinimo" Type="String" Nullable="false" />
+    <Property Name="Creado" Type="DateTime" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Categoria" Relationship="Model1.ProductoCategoria" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="Historial" Relationship="Model1.HistorialProducto" FromRole="Producto" ToRole="Historial" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="Creado" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Model1.ProductoCategoria" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <Association Name="ProductoCategoria">
+    <End Type="Model1.Producto" Role="Producto" Multiplicity="*" />
+    <End Type="Model1.Categoria" Role="Categoria" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Historial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Creado" Type="DateTime" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Deuda" Type="Double" Nullable="false" />
+    <Property Name="Patente" Type="String" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Model1.HistorialProducto" FromRole="Historial" ToRole="Producto" />
+    <NavigationProperty Name="Cliente" Relationship="Model1.HistorialCliente" FromRole="Historial" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="HistorialProducto">
+    <End Type="Model1.Historial" Role="Historial" Multiplicity="*" />
+    <End Type="Model1.Producto" Role="Producto" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="Creado" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Historial" Relationship="Model1.HistorialCliente" FromRole="Cliente" ToRole="Historial" />
+  </EntityType>
+  <Association Name="HistorialCliente">
+    <End Type="Model1.Historial" Role="Historial" Multiplicity="*" />
+    <End Type="Model1.Cliente" Role="Cliente" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <NavigationProperty Name="Rol" Relationship="Model1.RolPermiso" FromRole="Permiso" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Model1.RolUsuario" FromRole="Rol" ToRole="Usuario" />
+    <NavigationProperty Name="Permiso" Relationship="Model1.RolPermiso" FromRole="Rol" ToRole="Permiso" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="User" Type="String" Nullable="false" />
+    <Property Name="Pass" Type="String" Nullable="false" />
+    <NavigationProperty Name="Rol" Relationship="Model1.RolUsuario" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="RolUsuario">
+    <End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="Model1.Usuario" Role="Usuario" Multiplicity="*" />
+  </Association>
+  <Association Name="RolPermiso">
+    <End Type="Model1.Rol" Role="Rol" Multiplicity="*" />
+    <End Type="Model1.Permiso" Role="Permiso" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,10 @@
+D:\Taller\Taller\Main\bin\Debug\Main.exe.config
+D:\Taller\Taller\Main\bin\Debug\Main.exe
+D:\Taller\Taller\Main\bin\Debug\Main.pdb
+D:\Taller\Taller\Main\bin\Debug\EntityFramework.dll
+D:\Taller\Taller\Main\bin\Debug\EntityFramework.xml
+D:\Taller\Taller\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+D:\Taller\Taller\Main\obj\Debug\Main.Properties.Resources.resources
+D:\Taller\Taller\Main\obj\Debug\Main.csproj.GenerateResource.Cache
+D:\Taller\Taller\Main\obj\Debug\Main.exe
+D:\Taller\Taller\Main\obj\Debug\Main.pdb

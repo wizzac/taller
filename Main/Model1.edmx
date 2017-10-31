@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ProductoSet" EntityType="Model1.Store.ProductoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoriaSet" EntityType="Model1.Store.CategoriaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HistorialSet" EntityType="Model1.Store.HistorialSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClienteSet" EntityType="Model1.Store.ClienteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PermisoSet" EntityType="Model1.Store.PermisoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolSet" EntityType="Model1.Store.RolSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioSet" EntityType="Model1.Store.UsuarioSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HistorialProducto" EntityType="Model1.Store.HistorialProducto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RolPermiso" EntityType="Model1.Store.RolPermiso" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductoCategoria" Association="Model1.Store.ProductoCategoria">
+      <End Role="Producto" EntitySet="ProductoSet" />
+      <End Role="Categoria" EntitySet="CategoriaSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialProducto_Historial" Association="Model1.Store.FK_HistorialProducto_Historial">
+      <End Role="Historial" EntitySet="HistorialSet" />
+      <End Role="HistorialProducto" EntitySet="HistorialProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialProducto_Producto" Association="Model1.Store.FK_HistorialProducto_Producto">
+      <End Role="Producto" EntitySet="ProductoSet" />
+      <End Role="HistorialProducto" EntitySet="HistorialProducto" />
+    </AssociationSet>
+    <AssociationSet Name="HistorialCliente" Association="Model1.Store.HistorialCliente">
+      <End Role="Historial" EntitySet="HistorialSet" />
+      <End Role="Cliente" EntitySet="ClienteSet" />
+    </AssociationSet>
+    <AssociationSet Name="RolUsuario" Association="Model1.Store.RolUsuario">
+      <End Role="Rol" EntitySet="RolSet" />
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermiso_Rol" Association="Model1.Store.FK_RolPermiso_Rol">
+      <End Role="Rol" EntitySet="RolSet" />
+      <End Role="RolPermiso" EntitySet="RolPermiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolPermiso_Permiso" Association="Model1.Store.FK_RolPermiso_Permiso">
+      <End Role="Permiso" EntitySet="PermisoSet" />
+      <End Role="RolPermiso" EntitySet="RolPermiso" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ProductoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Precio" Type="float" Nullable="false" />
+    <Property Name="ModeloAuto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="StockMinimo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Creado" Type="datetime" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="Categoria_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoriaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Creado" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Creado" Type="datetime" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Total" Type="float" Nullable="false" />
+    <Property Name="Deuda" Type="float" Nullable="false" />
+    <Property Name="Patente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cliente_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClienteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Creado" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PermisoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pass" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rol_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialProducto">
+    <Key>
+      <PropertyRef Name="Historial_Id" />
+      <PropertyRef Name="Producto_Id" />
+    </Key>
+    <Property Name="Historial_Id" Type="int" Nullable="false" />
+    <Property Name="Producto_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolPermiso">
+    <Key>
+      <PropertyRef Name="Rol_Id" />
+      <PropertyRef Name="Permiso_Id" />
+    </Key>
+    <Property Name="Rol_Id" Type="int" Nullable="false" />
+    <Property Name="Permiso_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductoCategoria">
+    <End Role="Producto" Type="Model1.Store.ProductoSet" Multiplicity="*" />
+    <End Role="Categoria" Type="Model1.Store.CategoriaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="Categoria_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HistorialCliente">
+    <End Role="Historial" Type="Model1.Store.HistorialSet" Multiplicity="*" />
+    <End Role="Cliente" Type="Model1.Store.ClienteSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historial">
+        <PropertyRef Name="Cliente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolUsuario">
+    <End Role="Rol" Type="Model1.Store.RolSet" Multiplicity="1" />
+    <End Role="Usuario" Type="Model1.Store.UsuarioSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialProducto_Historial">
+    <End Role="Historial" Type="Model1.Store.HistorialSet" Multiplicity="1" />
+    <End Role="HistorialProducto" Type="Model1.Store.HistorialProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Historial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistorialProducto">
+        <PropertyRef Name="Historial_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialProducto_Producto">
+    <End Role="HistorialProducto" Type="Model1.Store.HistorialProducto" Multiplicity="*" />
+    <End Role="Producto" Type="Model1.Store.ProductoSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistorialProducto">
+        <PropertyRef Name="Producto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermiso_Rol">
+    <End Role="Rol" Type="Model1.Store.RolSet" Multiplicity="1" />
+    <End Role="RolPermiso" Type="Model1.Store.RolPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolPermiso">
+        <PropertyRef Name="Rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolPermiso_Permiso">
+    <End Role="RolPermiso" Type="Model1.Store.RolPermiso" Multiplicity="*" />
+    <End Role="Permiso" Type="Model1.Store.PermisoSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Permiso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolPermiso">
+        <PropertyRef Name="Permiso_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProductoSet" EntityType="Model1.Producto" />
+          <EntitySet Name="CategoriaSet" EntityType="Model1.Categoria" />
+          <AssociationSet Name="ProductoCategoria" Association="Model1.ProductoCategoria">
+            <End Role="Producto" EntitySet="ProductoSet" />
+            <End Role="Categoria" EntitySet="CategoriaSet" />
+          </AssociationSet>
+          <EntitySet Name="HistorialSet" EntityType="Model1.Historial" />
+          <AssociationSet Name="HistorialProducto" Association="Model1.HistorialProducto">
+            <End Role="Historial" EntitySet="HistorialSet" />
+            <End Role="Producto" EntitySet="ProductoSet" />
+          </AssociationSet>
+          <EntitySet Name="ClienteSet" EntityType="Model1.Cliente" />
+          <AssociationSet Name="HistorialCliente" Association="Model1.HistorialCliente">
+            <End Role="Historial" EntitySet="HistorialSet" />
+            <End Role="Cliente" EntitySet="ClienteSet" />
+          </AssociationSet>
+          <EntitySet Name="PermisoSet" EntityType="Model1.Permiso" />
+          <EntitySet Name="RolSet" EntityType="Model1.Rol" />
+          <EntitySet Name="UsuarioSet" EntityType="Model1.Usuario" />
+          <AssociationSet Name="RolUsuario" Association="Model1.RolUsuario">
+            <End Role="Rol" EntitySet="RolSet" />
+            <End Role="Usuario" EntitySet="UsuarioSet" />
+          </AssociationSet>
+          <AssociationSet Name="RolPermiso" Association="Model1.RolPermiso">
+            <End Role="Rol" EntitySet="RolSet" />
+            <End Role="Permiso" EntitySet="PermisoSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="ModeloAuto" Type="String" Nullable="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="StockMinimo" Type="String" Nullable="false" />
+          <Property Name="Creado" Type="DateTime" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Model1.ProductoCategoria" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="Historial" Relationship="Model1.HistorialProducto" FromRole="Producto" ToRole="Historial" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="Creado" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Model1.ProductoCategoria" FromRole="Categoria" ToRole="Producto" />
+        </EntityType>
+        <Association Name="ProductoCategoria">
+          <End Type="Model1.Producto" Role="Producto" Multiplicity="*" />
+          <End Type="Model1.Categoria" Role="Categoria" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Historial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="Creado" Type="DateTime" Nullable="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="Deuda" Type="Double" Nullable="false" />
+          <Property Name="Patente" Type="String" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Model1.HistorialProducto" FromRole="Historial" ToRole="Producto" />
+          <NavigationProperty Name="Cliente" Relationship="Model1.HistorialCliente" FromRole="Historial" ToRole="Cliente" />
+        </EntityType>
+        <Association Name="HistorialProducto">
+          <End Type="Model1.Historial" Role="Historial" Multiplicity="*" />
+          <End Type="Model1.Producto" Role="Producto" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="Creado" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Historial" Relationship="Model1.HistorialCliente" FromRole="Cliente" ToRole="Historial" />
+        </EntityType>
+        <Association Name="HistorialCliente">
+          <End Type="Model1.Historial" Role="Historial" Multiplicity="*" />
+          <End Type="Model1.Cliente" Role="Cliente" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Rol" Relationship="Model1.RolPermiso" FromRole="Permiso" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Model1.RolUsuario" FromRole="Rol" ToRole="Usuario" />
+          <NavigationProperty Name="Permiso" Relationship="Model1.RolPermiso" FromRole="Rol" ToRole="Permiso" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="User" Type="String" Nullable="false" />
+          <Property Name="Pass" Type="String" Nullable="false" />
+          <NavigationProperty Name="Rol" Relationship="Model1.RolUsuario" FromRole="Usuario" ToRole="Rol" />
+        </EntityType>
+        <Association Name="RolUsuario">
+          <End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Model1.Usuario" Role="Usuario" Multiplicity="*" />
+        </Association>
+        <Association Name="RolPermiso">
+          <End Type="Model1.Rol" Role="Rol" Multiplicity="*" />
+          <End Type="Model1.Permiso" Role="Permiso" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ProductoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Producto)">
+        <MappingFragment StoreEntitySet="ProductoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="ModeloAuto" ColumnName="ModeloAuto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="StockMinimo" ColumnName="StockMinimo" />
+          <ScalarProperty Name="Creado" ColumnName="Creado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Categoria)">
+        <MappingFragment StoreEntitySet="CategoriaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Creado" ColumnName="Creado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Historial)">
+        <MappingFragment StoreEntitySet="HistorialSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Creado" ColumnName="Creado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Deuda" ColumnName="Deuda" />
+          <ScalarProperty Name="Patente" ColumnName="Patente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClienteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cliente)">
+        <MappingFragment StoreEntitySet="ClienteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Creado" ColumnName="Creado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermisoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Permiso)">
+        <MappingFragment StoreEntitySet="PermisoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Rol)">
+        <MappingFragment StoreEntitySet="RolSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Usuario)">
+        <MappingFragment StoreEntitySet="UsuarioSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductoCategoria" TypeName="Model1.ProductoCategoria" StoreEntitySet="ProductoSet">
+      <EndProperty Name="Categoria">
+        <ScalarProperty Name="Id" ColumnName="Categoria_Id" />
+      </EndProperty>
+      <EndProperty Name="Producto">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HistorialProducto" TypeName="Model1.HistorialProducto" StoreEntitySet="HistorialProducto">
+      <EndProperty Name="Historial">
+        <ScalarProperty Name="Id" ColumnName="Historial_Id" />
+      </EndProperty>
+      <EndProperty Name="Producto">
+        <ScalarProperty Name="Id" ColumnName="Producto_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HistorialCliente" TypeName="Model1.HistorialCliente" StoreEntitySet="HistorialSet">
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="Id" ColumnName="Cliente_Id" />
+      </EndProperty>
+      <EndProperty Name="Historial">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolUsuario" TypeName="Model1.RolUsuario" StoreEntitySet="UsuarioSet">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="Id" ColumnName="Rol_Id" />
+      </EndProperty>
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolPermiso" TypeName="Model1.RolPermiso" StoreEntitySet="RolPermiso">
+      <EndProperty Name="Rol">
+        <ScalarProperty Name="Id" ColumnName="Rol_Id" />
+      </EndProperty>
+      <EndProperty Name="Permiso">
+        <ScalarProperty Name="Id" ColumnName="Permiso_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
