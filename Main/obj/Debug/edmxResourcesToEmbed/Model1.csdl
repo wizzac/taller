@@ -36,7 +36,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" Nullable="false" />
     <Property Name="Precio" Type="Double" Nullable="false" />
-    <Property Name="ModeloAuto" Type="String" Nullable="false" />
+    <Property Name="Marca" Type="String" Nullable="false" />
     <Property Name="Estado" Type="Int32" Nullable="false" />
     <Property Name="StockMinimo" Type="String" Nullable="false" />
     <Property Name="Creado" Type="DateTime" Nullable="false" />

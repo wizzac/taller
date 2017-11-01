@@ -8,3 +8,5 @@ D:\Taller\Taller\Main\obj\Debug\Main.Properties.Resources.resources
 D:\Taller\Taller\Main\obj\Debug\Main.csproj.GenerateResource.Cache
 D:\Taller\Taller\Main\obj\Debug\Main.exe
 D:\Taller\Taller\Main\obj\Debug\Main.pdb
+D:\Taller\Taller\Main\bin\Debug\Vistas.dll
+D:\Taller\Taller\Main\bin\Debug\Vistas.pdb

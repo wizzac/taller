@@ -1,0 +1,8 @@
+D:\Taller\Taller\Vistas\bin\Debug\Vistas.dll
+D:\Taller\Taller\Vistas\bin\Debug\Vistas.pdb
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuPrincipal.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuStock.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.csproj.GenerateResource.Cache
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.dll
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.pdb
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.csprojResolveAssemblyReference.cache

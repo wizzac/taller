@@ -7,7 +7,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="ModeloAuto" ColumnName="ModeloAuto" />
+          <ScalarProperty Name="Marca" ColumnName="ModeloAuto" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="StockMinimo" ColumnName="StockMinimo" />
           <ScalarProperty Name="Creado" ColumnName="Creado" />

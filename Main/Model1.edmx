@@ -258,7 +258,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" />
           <Property Name="Precio" Type="Double" Nullable="false" />
-          <Property Name="ModeloAuto" Type="String" Nullable="false" />
+          <Property Name="Marca" Type="String" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <Property Name="StockMinimo" Type="String" Nullable="false" />
           <Property Name="Creado" Type="DateTime" Nullable="false" />
@@ -364,7 +364,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="ModeloAuto" ColumnName="ModeloAuto" />
+          <ScalarProperty Name="Marca" ColumnName="ModeloAuto" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="StockMinimo" ColumnName="StockMinimo" />
           <ScalarProperty Name="Creado" ColumnName="Creado" />

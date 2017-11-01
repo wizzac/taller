@@ -22,7 +22,7 @@ namespace Main
         public int Id { get; set; }
         public string Nombre { get; set; }
         public double Precio { get; set; }
-        public string ModeloAuto { get; set; }
+        public string Marca { get; set; }
         public int Estado { get; set; }
         public string StockMinimo { get; set; }
         public System.DateTime Creado { get; set; }

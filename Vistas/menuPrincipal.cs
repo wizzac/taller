@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Main
+namespace Vistas
 {
-    public partial class Form1 : Form
+    public partial class menuPrincipal : Form
     {
-        public Form1()
+        public menuPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            menuStock frm = new menuStock();
+            frm.Show();
         }
     }
 }
