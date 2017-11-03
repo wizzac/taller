@@ -19,7 +19,8 @@ namespace Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            menuAgregarStock frm = new menuAgregarStock();
+            frm.ShowDialog();
         }
 
         private void cbCategorias_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,6 +36,24 @@ namespace Vistas
         private void lblMarca_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            menuAgregarProducto frm = new menuAgregarProducto();
+            frm.ShowDialog();
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            menuAgregarCategoria frm = new menuAgregarCategoria();
+            frm.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            menuModificarProducto frm = new menuModificarProducto();
+            frm.ShowDialog();
         }
     }
 }

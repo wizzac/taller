@@ -41,6 +41,8 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblMarca = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnAgregarCategoria = new System.Windows.Forms.Button();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +56,11 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(311, 327);
+            this.btnAgregar.Location = new System.Drawing.Point(260, 338);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(151, 43);
             this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Agregar Stock";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -73,16 +75,17 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(497, 327);
+            this.btnModificar.Location = new System.Drawing.Point(446, 338);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(151, 43);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(683, 327);
+            this.btnEliminar.Location = new System.Drawing.Point(632, 338);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(151, 43);
             this.btnEliminar.TabIndex = 4;
@@ -163,11 +166,33 @@
             this.textBox2.Size = new System.Drawing.Size(179, 20);
             this.textBox2.TabIndex = 14;
             // 
+            // btnAgregarCategoria
+            // 
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(74, 338);
+            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(151, 43);
+            this.btnAgregarCategoria.TabIndex = 15;
+            this.btnAgregarCategoria.Text = "Agregar Categoria";
+            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Location = new System.Drawing.Point(74, 404);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(151, 43);
+            this.btnAgregarProducto.TabIndex = 16;
+            this.btnAgregarProducto.Text = "Agregar Producto";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
             // menuStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 409);
+            this.ClientSize = new System.Drawing.Size(846, 459);
+            this.Controls.Add(this.btnAgregarProducto);
+            this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.btnFiltrar);
@@ -204,5 +229,7 @@
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnAgregarCategoria;
+        private System.Windows.Forms.Button btnAgregarProducto;
     }
 }

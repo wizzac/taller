@@ -20,7 +20,13 @@ namespace Vistas
         private void btnStock_Click(object sender, EventArgs e)
         {
             menuStock frm = new menuStock();
-            frm.Show();
+            frm.ShowDialog();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            menuProducto frm = new menuProducto();
+            frm.ShowDialog();
         }
     }
 }

@@ -43,11 +43,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="menuAgregarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuAgregarCategoria.Designer.cs">
+      <DependentUpon>menuAgregarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuAgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuAgregarProducto.Designer.cs">
+      <DependentUpon>menuAgregarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuAgregarStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuAgregarStock.Designer.cs">
+      <DependentUpon>menuAgregarStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuModificarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuModificarProducto.Designer.cs">
+      <DependentUpon>menuModificarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="menuPrincipal.Designer.cs">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuProducto.Designer.cs">
+      <DependentUpon>menuProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="menuStock.cs">
       <SubType>Form</SubType>
@@ -58,8 +88,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="menuAgregarCategoria.resx">
+      <DependentUpon>menuAgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuAgregarProducto.resx">
+      <DependentUpon>menuAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuAgregarStock.resx">
+      <DependentUpon>menuAgregarStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuModificarProducto.resx">
+      <DependentUpon>menuModificarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuProducto.resx">
+      <DependentUpon>menuProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuStock.resx">
       <DependentUpon>menuStock.cs</DependentUpon>

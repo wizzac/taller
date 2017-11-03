@@ -6,3 +6,8 @@ D:\Taller\Taller\Vistas\obj\Debug\Vistas.csproj.GenerateResource.Cache
 D:\Taller\Taller\Vistas\obj\Debug\Vistas.dll
 D:\Taller\Taller\Vistas\obj\Debug\Vistas.pdb
 D:\Taller\Taller\Vistas\obj\Debug\Vistas.csprojResolveAssemblyReference.cache
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuAgregarStock.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuAgregarCategoria.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuAgregarProducto.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuModificarProducto.resources
+D:\Taller\Taller\Vistas\obj\Debug\Vistas.menuProducto.resources
